@@ -1,12 +1,12 @@
 import { expect, it } from 'vitest'
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 import type {
   StateCreator,
   StoreApi,
   StoreMutatorIdentifier,
   UseBoundStore,
-} from 'zustand'
-import { persist } from 'zustand/middleware'
+} from 'zustandv4'
+import { persist } from 'zustandv4/middleware'
 
 it('can use exposed types', () => {
   type ExampleState = {
@@ -231,7 +231,7 @@ it('StateCreator subtyping', () => {
 
   create<State>()(persist(foo(), { name: 'prefix' }))
 
-  const _testSubtyping: StateCreator<State, [['zustand/persist', unknown]]> =
+  const _testSubtyping: StateCreator<State, [['zustandv4/persist', unknown]]> =
     {} as StateCreator<State, []>
 })
 

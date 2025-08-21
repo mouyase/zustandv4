@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { act, screen } from '@testing-library/react'
 import { renderToString } from 'react-dom/server'
 import { describe, expect, it, vi } from 'vitest'
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 interface BearStoreState {
   bears: number

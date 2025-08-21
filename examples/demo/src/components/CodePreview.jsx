@@ -1,4 +1,4 @@
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 import { Highlight } from 'prism-react-renderer'
 import CopyButton from './CopyButton'
 import SnippetLang from './SnippetLang'

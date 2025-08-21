@@ -572,13 +572,13 @@ type Persist = <
   Mcs extends [StoreMutatorIdentifier, unknown][] = [],
   U = T,
 >(
-  initializer: StateCreator<T, [...Mps, ['zustand/persist', unknown]], Mcs>,
+  initializer: StateCreator<T, [...Mps, ['zustandv4/persist', unknown]], Mcs>,
   options: PersistOptions<T, U>,
-) => StateCreator<T, Mps, [['zustand/persist', U], ...Mcs]>
+) => StateCreator<T, Mps, [['zustandv4/persist', U], ...Mcs]>
 
 declare module '../vanilla' {
   interface StoreMutators<S, A> {
-    'zustand/persist': WithPersist<S, A>
+    'zustandv4/persist': WithPersist<S, A>
   }
 }
 

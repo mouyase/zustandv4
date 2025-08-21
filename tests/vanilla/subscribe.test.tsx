@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
-import { subscribeWithSelector } from 'zustand/middleware'
-import { createStore } from 'zustand/vanilla'
+import { subscribeWithSelector } from 'zustandv4/middleware'
+import { createStore } from 'zustandv4/vanilla'
 
 describe('subscribe()', () => {
   it('should not be called if new state identity is the same', () => {

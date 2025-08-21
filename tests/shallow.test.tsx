@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { act, fireEvent, render } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { create } from 'zustand'
-import { useShallow } from 'zustand/react/shallow'
-import { createWithEqualityFn } from 'zustand/traditional'
-import { shallow } from 'zustand/vanilla/shallow'
+import { create } from 'zustandv4'
+import { useShallow } from 'zustandv4/react/shallow'
+import { createWithEqualityFn } from 'zustandv4/traditional'
+import { shallow } from 'zustandv4/vanilla/shallow'
 
 describe('types', () => {
   it('works with useBoundStore and array selector (#1107)', () => {

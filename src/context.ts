@@ -10,9 +10,9 @@
 // eslint-disable-next-line import/extensions
 import ReactExports from 'react'
 import type { ReactNode } from 'react'
-import type { StoreApi } from 'zustand'
+import type { StoreApi } from 'zustandv4'
 // eslint-disable-next-line import/extensions
-import { useStoreWithEqualityFn } from 'zustand/traditional'
+import { useStoreWithEqualityFn } from 'zustandv4/traditional'
 
 const {
   createElement,
@@ -40,7 +40,7 @@ type WithoutCallSignature<T> = { [K in keyof T]: T[K] }
 function createContext<S extends StoreApi<unknown>>() {
   if (import.meta.env?.MODE !== 'production') {
     console.warn(
-      "[DEPRECATED] `context` will be removed in a future version. Instead use `import { createStore, useStore } from 'zustand'`. See: https://github.com/pmndrs/zustand/discussions/1180.",
+      "[DEPRECATED] `context` will be removed in a future version. Instead use `import { createStore, useStore } from 'zustandv4'`. See: https://github.com/pmndrs/zustand/discussions/1180.",
     )
   }
   const ZustandContext = reactCreateContext<S | undefined>(undefined)

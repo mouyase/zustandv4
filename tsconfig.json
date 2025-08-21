@@ -14,8 +14,8 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "zustand": ["./src/index.ts"],
-      "zustand/*": ["./src/*.ts"]
+      "zustandv4": ["./src/index.ts"],
+      "zustandv4/*": ["./src/*.ts"]
     }
   },
   "include": ["src/**/*", "tests/**/*"],

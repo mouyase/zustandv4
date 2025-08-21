@@ -14,7 +14,7 @@ type Config = Parameters<
 declare module '../vanilla' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface StoreMutators<S, A> {
-    'zustand/devtools': WithDevtools<S>
+    'zustandv4/devtools': WithDevtools<S>
   }
 }
 
@@ -71,14 +71,14 @@ type Devtools = <
   Mps extends [StoreMutatorIdentifier, unknown][] = [],
   Mcs extends [StoreMutatorIdentifier, unknown][] = [],
 >(
-  initializer: StateCreator<T, [...Mps, ['zustand/devtools', never]], Mcs>,
+  initializer: StateCreator<T, [...Mps, ['zustandv4/devtools', never]], Mcs>,
   devtoolsOptions?: DevtoolsOptions,
-) => StateCreator<T, Mps, [['zustand/devtools', never], ...Mcs]>
+) => StateCreator<T, Mps, [['zustandv4/devtools', never], ...Mcs]>
 
 declare module '../vanilla' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface StoreMutators<S, A> {
-    'zustand/devtools': WithDevtools<S>
+    'zustandv4/devtools': WithDevtools<S>
   }
 }
 

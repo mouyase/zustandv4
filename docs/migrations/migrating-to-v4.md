@@ -23,8 +23,8 @@ of the test files in the Zustand repository from v3 to v4.
 **Applicable imports**
 
 ```ts
-import create from 'zustand'
-import create from 'zustand/vanilla'
+import create from 'zustandv4'
+import create from 'zustandv4/vanilla'
 ```
 
 **Change**
@@ -58,8 +58,8 @@ Else, replace `create<T, ...>(...)` with `create<T>()(...)`.
 **Applicable imports**
 
 ```ts
-import type { StateCreator } from 'zustand'
-import type { StateCreator } from 'zustand/vanilla'
+import type { StateCreator } from 'zustandv4'
+import type { StateCreator } from 'zustandv4/vanilla'
 ```
 
 **Change**
@@ -96,8 +96,8 @@ sections of the TypeScript Guide.
 **Applicable imports**
 
 ```ts
-import type { PartialState } from 'zustand'
-import type { PartialState } from 'zustand/vanilla'
+import type { PartialState } from 'zustandv4'
+import type { PartialState } from 'zustandv4/vanilla'
 ```
 
 **Change**
@@ -140,8 +140,8 @@ Instead, we're relying on the users to turn on `exactOptionalPropertyTypes`.
 **Applicable imports**
 
 ```ts
-import { useStore } from 'zustand'
-import { useStore } from 'zustand/react'
+import { useStore } from 'zustandv4'
+import { useStore } from 'zustandv4/react'
 ```
 
 **Change**
@@ -178,8 +178,8 @@ or pass the **store** type instead of the **state** type as the first parameter.
 **Applicable imports**
 
 ```ts
-import type { UseBoundStore } from 'zustand'
-import type { UseBoundStore } from 'zustand/react'
+import type { UseBoundStore } from 'zustandv4'
+import type { UseBoundStore } from 'zustandv4/react'
 ```
 
 **Change**
@@ -215,7 +215,7 @@ and `UseBoundStore<T, S>` with `UseBoundStore<S>`
 **Applicable imports**
 
 ```ts
-import type { UseContextStore } from 'zustand/context'
+import type { UseContextStore } from 'zustandv4/context'
 ```
 
 **Change**
@@ -233,7 +233,7 @@ Use `typeof MyContext.useStore` instead
 **Applicable imports**
 
 ```ts
-import createContext from 'zustand/context'
+import createContext from 'zustandv4/context'
 ```
 
 **Change**
@@ -254,9 +254,9 @@ and `createContext<T, S>()` with `createContext<S>()`.
 **Applicable imports**
 
 ```ts
-import { combine } from 'zustand/middleware'
-import { devtools } from 'zustand/middleware'
-import { subscribeWithSelector } from 'zustand/middleware'
+import { combine } from 'zustandv4/middleware'
+import { devtools } from 'zustandv4/middleware'
+import { subscribeWithSelector } from 'zustandv4/middleware'
 ```
 
 **Change**
@@ -293,7 +293,7 @@ as they are inferred automatically.
 **Applicable imports**
 
 ```ts
-import { persist } from 'zustand/middleware'
+import { persist } from 'zustandv4/middleware'
 ```
 
 **Change**
@@ -338,7 +338,7 @@ only the types are now correct.
 **Applicable imports**
 
 ```ts
-import { redux } from 'zustand/middleware'
+import { redux } from 'zustandv4/middleware'
 ```
 
 **Change**

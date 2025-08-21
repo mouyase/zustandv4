@@ -1,4 +1,4 @@
-export default `import { create } from 'zustand'
+export default `import { create } from 'zustandv4'
 
 type Store = {
   count: number

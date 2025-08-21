@@ -8,10 +8,10 @@ import {
 import type { ReactNode } from 'react'
 import { render } from '@testing-library/react'
 import { afterEach, it, vi } from 'vitest'
-import { create } from 'zustand'
-import type { StoreApi } from 'zustand'
-import createContext from 'zustand/context'
-import { subscribeWithSelector } from 'zustand/middleware'
+import { create } from 'zustandv4'
+import type { StoreApi } from 'zustandv4'
+import createContext from 'zustandv4/context'
+import { subscribeWithSelector } from 'zustandv4/middleware'
 
 const consoleError = console.error
 afterEach(() => {

@@ -5,12 +5,12 @@ import { shallow } from './vanilla/shallow.ts'
 // export { useShallow } from './react/shallow.ts'
 
 /**
- * @deprecated Use `import { shallow } from 'zustand/shallow'`
+ * @deprecated Use `import { shallow } from 'zustandv4/shallow'`
  */
 export default ((objA, objB) => {
   if (import.meta.env?.MODE !== 'production') {
     console.warn(
-      "[DEPRECATED] Default export is deprecated. Instead use `import { shallow } from 'zustand/shallow'`.",
+      "[DEPRECATED] Default export is deprecated. Instead use `import { shallow } from 'zustandv4/shallow'`.",
     )
   }
   return shallow(objA, objB)

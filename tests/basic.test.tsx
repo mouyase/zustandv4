@@ -9,9 +9,9 @@ import type { ReactNode } from 'react'
 import { act, fireEvent, render } from '@testing-library/react'
 import ReactDOM from 'react-dom'
 import { afterEach, expect, it, vi } from 'vitest'
-import { create } from 'zustand'
-import type { StoreApi } from 'zustand'
-import { createWithEqualityFn } from 'zustand/traditional'
+import { create } from 'zustandv4'
+import type { StoreApi } from 'zustandv4'
+import { createWithEqualityFn } from 'zustandv4/traditional'
 
 const consoleError = console.error
 afterEach(() => {

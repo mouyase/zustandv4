@@ -2,17 +2,17 @@
 /* eslint react-compiler/react-compiler: off */
 
 import { describe, expect, it } from 'vitest'
-import { create } from 'zustand'
-import type { StoreApi } from 'zustand'
+import { create } from 'zustandv4'
+import type { StoreApi } from 'zustandv4'
 import {
   combine,
   devtools,
   persist,
   redux,
   subscribeWithSelector,
-} from 'zustand/middleware'
-import { immer } from 'zustand/middleware/immer'
-import { createStore } from 'zustand/vanilla'
+} from 'zustandv4/middleware'
+import { immer } from 'zustandv4/middleware/immer'
+import { createStore } from 'zustandv4/vanilla'
 
 type CounterState = {
   count: number
@@ -632,8 +632,8 @@ describe('create with explicitly annotated mutators', () => {
     const useBoundStore = create<
       CounterState,
       [
-        ['zustand/subscribeWithSelector', never],
-        ['zustand/persist', CounterState],
+        ['zustandv4/subscribeWithSelector', never],
+        ['zustandv4/persist', CounterState],
       ]
     >(
       subscribeWithSelector(

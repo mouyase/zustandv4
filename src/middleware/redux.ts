@@ -23,11 +23,11 @@ type Redux = <
 >(
   reducer: (state: T, action: A) => T,
   initialState: T,
-) => StateCreator<Write<T, ReduxState<A>>, Cms, [['zustand/redux', A]]>
+) => StateCreator<Write<T, ReduxState<A>>, Cms, [['zustandv4/redux', A]]>
 
 declare module '../vanilla' {
   interface StoreMutators<S, A> {
-    'zustand/redux': WithRedux<S, A>
+    'zustandv4/redux': WithRedux<S, A>
   }
 }
 

@@ -7,13 +7,13 @@ type Immer = <
   Mps extends [StoreMutatorIdentifier, unknown][] = [],
   Mcs extends [StoreMutatorIdentifier, unknown][] = [],
 >(
-  initializer: StateCreator<T, [...Mps, ['zustand/immer', never]], Mcs>,
-) => StateCreator<T, Mps, [['zustand/immer', never], ...Mcs]>
+  initializer: StateCreator<T, [...Mps, ['zustandv4/immer', never]], Mcs>,
+) => StateCreator<T, Mps, [['zustandv4/immer', never], ...Mcs]>
 
 declare module '../vanilla' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface StoreMutators<S, A> {
-    ['zustand/immer']: WithImmer<S>
+    ['zustandv4/immer']: WithImmer<S>
   }
 }
 

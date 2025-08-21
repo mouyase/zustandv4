@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { shallow } from 'zustand/vanilla/shallow'
+import { shallow } from 'zustandv4/vanilla/shallow'
 
 describe('shallow', () => {
   it('compares primitive values', () => {
@@ -9,8 +9,8 @@ describe('shallow', () => {
     expect(shallow(1, 1)).toBe(true)
     expect(shallow(1, 2)).toBe(false)
 
-    expect(shallow('zustand', 'zustand')).toBe(true)
-    expect(shallow('zustand', 'redux')).toBe(false)
+    expect(shallow('zustandv4', 'zustandv4')).toBe(true)
+    expect(shallow('zustandv4', 'redux')).toBe(false)
   })
 
   it('compares objects', () => {

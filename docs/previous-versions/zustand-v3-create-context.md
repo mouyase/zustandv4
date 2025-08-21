@@ -9,8 +9,8 @@ which avoids misusing the store hook.
 > **Note**: This function is deprecated in v4 and will be removed in v5. See [Migration](#migration).
 
 ```jsx
-import create from 'zustand'
-import createContext from 'zustand/context'
+import create from 'zustandv4'
+import createContext from 'zustandv4/context'
 
 const { Provider, useStore } = createContext()
 
@@ -83,8 +83,8 @@ export default function App() {
 ## createContext usage with initialization from props
 
 ```tsx
-import create from 'zustand'
-import createContext from 'zustand/context'
+import create from 'zustandv4'
+import createContext from 'zustandv4/context'
 
 const { Provider, useStore } = createContext()
 
@@ -112,7 +112,7 @@ Here's the new context usage with v4 API.
 
 ```jsx
 import { createContext, useContext, useRef } from 'react'
-import { createStore, useStore } from 'zustand'
+import { createStore, useStore } from 'zustandv4'
 
 const StoreContext = createContext(null)
 

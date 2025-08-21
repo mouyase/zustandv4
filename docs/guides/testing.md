@@ -64,7 +64,7 @@ creator for both implementations, with and without `Context` API — `createStor
 
 ```ts
 // shared/counter-store-creator.ts
-import { type StateCreator } from 'zustand'
+import { type StateCreator } from 'zustandv4'
 
 export type CounterStore = {
   count: number
@@ -83,11 +83,11 @@ In the next steps we are going to setup our Jest environment in order to mock Zu
 
 ```ts
 // __mocks__/zustand.ts
-import * as zustand from 'zustand'
+import * as zustand from 'zustandv4'
 import { act } from '@testing-library/react'
 
 const { create: actualCreate, createStore: actualCreateStore } =
-  jest.requireActual<typeof zustand>('zustand')
+  jest.requireActual<typeof zustand>('zustandv4')
 
 // a variable to hold reset functions for all stores declared in the app
 export const storeResetFns = new Set<() => void>()
@@ -103,7 +103,7 @@ const createUncurried = <T>(stateCreator: zustand.StateCreator<T>) => {
 
 // when creating a store, we get its initial state, create a reset function and add it in the set
 export const create = (<T>(stateCreator: zustand.StateCreator<T>) => {
-  console.log('zustand create mock')
+  console.log('zustandv4 create mock')
 
   // to support curried version of create
   return typeof stateCreator === 'function'
@@ -122,7 +122,7 @@ const createStoreUncurried = <T>(stateCreator: zustand.StateCreator<T>) => {
 
 // when creating a store, we get its initial state, create a reset function and add it in the set
 export const createStore = (<T>(stateCreator: zustand.StateCreator<T>) => {
-  console.log('zustand createStore mock')
+  console.log('zustandv4 createStore mock')
 
   // to support curried version of createStore
   return typeof stateCreator === 'function'
@@ -172,11 +172,11 @@ In the next steps we are going to setup our Vitest environment in order to mock 
 
 ```ts
 // __mocks__/zustand.ts
-import * as zustand from 'zustand'
+import * as zustand from 'zustandv4'
 import { act } from '@testing-library/react'
 
 const { create: actualCreate, createStore: actualCreateStore } =
-  await vi.importActual<typeof zustand>('zustand')
+  await vi.importActual<typeof zustand>('zustandv4')
 
 // a variable to hold reset functions for all stores declared in the app
 export const storeResetFns = new Set<() => void>()
@@ -192,7 +192,7 @@ const createUncurried = <T>(stateCreator: zustand.StateCreator<T>) => {
 
 // when creating a store, we get its initial state, create a reset function and add it in the set
 export const create = (<T>(stateCreator: zustand.StateCreator<T>) => {
-  console.log('zustand create mock')
+  console.log('zustandv4 create mock')
 
   // to support curried version of create
   return typeof stateCreator === 'function'
@@ -211,7 +211,7 @@ const createStoreUncurried = <T>(stateCreator: zustand.StateCreator<T>) => {
 
 // when creating a store, we get its initial state, create a reset function and add it in the set
 export const createStore = (<T>(stateCreator: zustand.StateCreator<T>) => {
-  console.log('zustand createStore mock')
+  console.log('zustandv4 createStore mock')
 
   // to support curried version of createStore
   return typeof stateCreator === 'function'
@@ -245,7 +245,7 @@ afterEach(() => {
 // setup-vitest.ts
 import '@testing-library/jest-dom'
 
-vi.mock('zustand') // to make it work like Jest (auto-mocking)
+vi.mock('zustandv4') // to make it work like Jest (auto-mocking)
 ```
 
 > **Note**: without [globals configuration](https://vitest.dev/config/#globals) enabled, we need
@@ -276,7 +276,7 @@ In the next examples we are going to use `useCounterStore`
 
 ```ts
 // stores/counter-store-creator.ts
-import { type StateCreator } from 'zustand'
+import { type StateCreator } from 'zustandv4'
 
 export type CounterStore = {
   count: number
@@ -291,7 +291,7 @@ export const counterStoreCreator: StateCreator<CounterStore> = (set) => ({
 
 ```ts
 // stores/user-counter-store.ts
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 import {
   type CounterStore,
@@ -304,9 +304,9 @@ export const useCounterStore = create<CounterStore>()(counterStoreCreator)
 ```tsx
 // contexts/use-counter-store-context.tsx
 import { type ReactNode, createContext, useContext, useRef } from 'react'
-import { createStore } from 'zustand'
-import { useStoreWithEqualityFn } from 'zustand/traditional'
-import { shallow } from 'zustand/shallow'
+import { createStore } from 'zustandv4'
+import { useStoreWithEqualityFn } from 'zustandv4/traditional'
+import { shallow } from 'zustandv4/shallow'
 
 import {
   type CounterStore,

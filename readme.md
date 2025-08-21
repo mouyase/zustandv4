@@ -25,7 +25,7 @@ npm i zustand
 Your store is a hook! You can put anything in it: primitives, objects, functions. State has to be updated immutably and the `set` function [merges state](./docs/guides/immutable-state-and-merging.md) to help it.
 
 ```jsx
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 const useBearStore = create((set) => ({
   bears: 0,
@@ -87,8 +87,8 @@ const honey = useBearStore((state) => state.honey)
 If you want to construct a single object with multiple state-picks inside, similar to redux's mapStateToProps, you can use [useShallow](./docs/guides/prevent-rerenders-with-use-shallow.md) to prevent unnecessary rerenders when the selector output does not change according to shallow equal.
 
 ```jsx
-import { create } from 'zustand'
-import { useShallow } from 'zustand/react/shallow'
+import { create } from 'zustandv4'
+import { useShallow } from 'zustandv4/react/shallow'
 
 const useBearStore = create((set) => ({
   bears: 0,
@@ -196,7 +196,7 @@ subscribe(selector, callback, options?: { equalityFn, fireImmediately }): Unsubs
 ```
 
 ```js
-import { subscribeWithSelector } from 'zustand/middleware'
+import { subscribeWithSelector } from 'zustandv4/middleware'
 const useDogStore = create(
   subscribeWithSelector(() => ({ paw: true, snout: true, fur: true })),
 )
@@ -225,7 +225,7 @@ const unsub5 = useDogStore.subscribe((state) => state.paw, console.log, {
 Zustand core can be imported and used without the React dependency. The only difference is that the create function does not return a hook, but the API utilities.
 
 ```jsx
-import { createStore } from 'zustand/vanilla'
+import { createStore } from 'zustandv4/vanilla'
 
 const store = createStore((set) => ...)
 const { getState, setState, subscribe, getInitialState } = store
@@ -236,7 +236,7 @@ export default store
 You can use a vanilla store with `useStore` hook available since v4.
 
 ```jsx
-import { useStore } from 'zustand'
+import { useStore } from 'zustandv4'
 import { vanillaStore } from './vanillaStore'
 
 const useBoundStore = (selector) => useStore(vanillaStore, selector)
@@ -289,8 +289,8 @@ clearForest()
 You can persist your store's data using any kind of storage.
 
 ```jsx
-import { create } from 'zustand'
-import { persist, createJSONStorage } from 'zustand/middleware'
+import { create } from 'zustandv4'
+import { persist, createJSONStorage } from 'zustandv4/middleware'
 
 const useFishStore = create(
   persist(
@@ -313,8 +313,8 @@ const useFishStore = create(
 Immer is available as middleware too.
 
 ```jsx
-import { create } from 'zustand'
-import { immer } from 'zustand/middleware/immer'
+import { create } from 'zustandv4'
+import { immer } from 'zustandv4/middleware/immer'
 
 const useBeeStore = create(
   immer((set) => ({
@@ -353,7 +353,7 @@ dispatch({ type: types.increase, by: 2 })
 Or, just use our redux-middleware. It wires up your main-reducer, sets the initial state, and adds a dispatch function to the state itself and the vanilla API.
 
 ```jsx
-import { redux } from 'zustand/middleware'
+import { redux } from 'zustandv4/middleware'
 
 const useGrumpyStore = create(redux(reducer, initialState))
 ```
@@ -361,7 +361,7 @@ const useGrumpyStore = create(redux(reducer, initialState))
 ## Redux devtools
 
 ```jsx
-import { devtools } from 'zustand/middleware'
+import { devtools } from 'zustandv4/middleware'
 
 // Usage with a plain action store, it will log actions as "setState"
 const usePlainStore = create(devtools((set) => ...))
@@ -372,7 +372,7 @@ const useReduxStore = create(devtools(redux(reducer, initialState)))
 One redux devtools connection for multiple stores
 
 ```jsx
-import { devtools } from 'zustand/middleware'
+import { devtools } from 'zustandv4/middleware'
 
 // Usage with a plain action store, it will log actions as "setState"
 const usePlainStore1 = create(devtools((set) => ..., { name, store: storeName1 }))
@@ -439,7 +439,7 @@ The recommended method available since v4 is to use the vanilla store.
 
 ```jsx
 import { createContext, useContext } from 'react'
-import { createStore, useStore } from 'zustand'
+import { createStore, useStore } from 'zustandv4'
 
 const store = createStore(...) // vanilla store without hooks
 
@@ -462,8 +462,8 @@ const Component = () => {
 Basic typescript usage doesn't require anything special except for writing `create<State>()(...)` instead of `create(...)`...
 
 ```ts
-import { create } from 'zustand'
-import { devtools, persist } from 'zustand/middleware'
+import { create } from 'zustandv4'
+import { devtools, persist } from 'zustandv4/middleware'
 import type {} from '@redux-devtools/extension' // required for devtools typing
 
 interface BearState {

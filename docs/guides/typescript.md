@@ -8,7 +8,7 @@ nav: 8
 The difference when using TypeScript is that instead of writing `create(...)`, you have to write `create<T>()(...)` (notice the extra parentheses `()` too along with the type parameter) where `T` is the type of the state to annotate it. For example:
 
 ```ts
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 interface BearState {
   bears: number
@@ -71,7 +71,7 @@ So what we're saying is, the inference failure in case of `createFoo` is not rea
 Zustand lies that it implemented `create`'s type, it implemented only the most part of it. Here's a simple proof by showing unsoundness. Consider the following code:
 
 ```ts
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 const useBoundStore = create<{ foo: number }>()((_, get) => ({
   foo: get().foo,
@@ -136,8 +136,8 @@ This way, `T` gets inferred and you get to annotate `E`. Zustand has the same us
 Alternatively, you can also use `combine`, which infers the state so that you do not need to type it.
 
 ```ts
-import { create } from 'zustand'
-import { combine } from 'zustand/middleware'
+import { create } from 'zustandv4'
+import { combine } from 'zustandv4/middleware'
 
 const useBearStore = create(
   combine({ bears: 0 }, (set) => ({
@@ -166,8 +166,8 @@ Note that we don't use the curried version when using `combine` because `combine
 You do not have to do anything special to use middlewares in TypeScript.
 
 ```ts
-import { create } from 'zustand'
-import { devtools, persist } from 'zustand/middleware'
+import { create } from 'zustandv4'
+import { devtools, persist } from 'zustandv4/middleware'
 
 interface BearState {
   bears: number
@@ -190,8 +190,8 @@ const useBearStore = create<BearState>()(
 Just make sure you are using them immediately inside `create` so as to make the contextual inference work. Doing something even remotely fancy like the following `myMiddlewares` would require more advanced types.
 
 ```ts
-import { create } from 'zustand'
-import { devtools, persist } from 'zustand/middleware'
+import { create } from 'zustandv4'
+import { devtools, persist } from 'zustandv4/middleware'
 
 const myMiddlewares = (f) => devtools(persist(f, { name: 'bearStore' }))
 
@@ -215,7 +215,7 @@ Also, we recommend using `devtools` middleware as last as possible. For example,
 Imagine you had to write this hypothetical middleware.
 
 ```ts
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 const foo = (f, bar) => (set, get, store) => {
   store.foo = bar
@@ -237,7 +237,7 @@ If you are eager to know what the answer is to this particular problem then you 
 ### Middleware that doesn't change the store type
 
 ```ts
-import { create, State, StateCreator, StoreMutatorIdentifier } from 'zustand'
+import { create, State, StateCreator, StoreMutatorIdentifier } from 'zustandv4'
 
 type Logger = <
   T extends State,
@@ -293,7 +293,7 @@ import {
   StoreMutatorIdentifier,
   Mutate,
   StoreApi,
-} from 'zustand'
+} from 'zustandv4'
 
 type Foo = <
   T extends State,
@@ -305,7 +305,7 @@ type Foo = <
   bar: A,
 ) => StateCreator<T, Mps, [['foo', A], ...Mcs]>
 
-declare module 'zustand' {
+declare module 'zustandv4' {
   interface StoreMutators<S, A> {
     foo: Write<Cast<S, object>, { foo: A }>
   }
@@ -352,8 +352,8 @@ interface BearState {
 const useBearStore = create<
   BearState,
   [
-    ['zustand/persist', BearState],
-    ['zustand/devtools', never]
+    ['zustandv4/persist', BearState],
+    ['zustandv4/devtools', never]
   ]
 >(devtools(persist((set) => ({
   bears: 0,
@@ -364,7 +364,7 @@ const useBearStore = create<
 ### Slices pattern
 
 ```ts
-import { create, StateCreator } from 'zustand'
+import { create, StateCreator } from 'zustandv4'
 
 interface BearSlice {
   bears: number
@@ -433,8 +433,8 @@ If you have some middlewares then replace `StateCreator<MyState, [], [], MySlice
 ### Bounded `useStore` hook for vanilla stores
 
 ```ts
-import { useStore } from 'zustand'
-import { createStore } from 'zustand/vanilla'
+import { useStore } from 'zustandv4'
+import { createStore } from 'zustandv4/vanilla'
 
 interface BearState {
   bears: number
@@ -456,8 +456,8 @@ function useBearStore<T>(selector?: (state: BearState) => T) {
 You can also make an abstract `createBoundedUseStore` function if you need to create bounded `useStore` hooks often and want to DRY things up...
 
 ```ts
-import { useStore, StoreApi } from 'zustand'
-import { createStore } from 'zustand/vanilla'
+import { useStore, StoreApi } from 'zustandv4'
+import { createStore } from 'zustandv4/vanilla'
 
 interface BearState {
   bears: number

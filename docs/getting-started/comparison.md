@@ -24,7 +24,7 @@ in context providers; Zustand does not.
 **Zustand**
 
 ```ts
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 type State = {
   count: number
@@ -43,7 +43,7 @@ const useCountStore = create<State & Actions>((set) => ({
 ```
 
 ```ts
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 type State = {
   count: number
@@ -136,7 +136,7 @@ that you manually apply render optimizations by using selectors.
 **Zustand**
 
 ```ts
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 type State = {
   count: number
@@ -242,7 +242,7 @@ while Valtio is based on the **mutable** state model.
 **Zustand**
 
 ```ts
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 type State = {
   obj: { count: number }
@@ -273,7 +273,7 @@ you manually apply render optimizations by using selectors.
 **Zustand**
 
 ```ts
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 type State = {
   count: number
@@ -315,7 +315,7 @@ while Jotai consists of primitive atoms that can be composed together.
 **Zustand**
 
 ```ts
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 type State = {
   count: number
@@ -351,7 +351,7 @@ you manually apply render optimizations by using selectors.
 **Zustand**
 
 ```ts
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 type State = {
   count: number
@@ -402,7 +402,7 @@ Additionally, Recoil needs to wrap your app in a context provider.
 **Zustand**
 
 ```ts
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 type State = {
   count: number
@@ -440,7 +440,7 @@ you manually apply render optimizations by using selectors.
 **Zustand**
 
 ```ts
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 type State = {
   count: number

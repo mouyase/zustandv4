@@ -10,7 +10,7 @@ export default defineConfig({
     ],
   },
   test: {
-    name: 'zustand',
+    name: 'zustandv4',
     // Keeping globals to true triggers React Testing Library's auto cleanup
     // https://vitest.dev/guide/migration.html
     globals: true,

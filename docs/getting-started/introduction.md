@@ -43,7 +43,7 @@ You can put anything in it: primitives, objects, functions.
 The `set` function _merges_ state.
 
 ```js
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 const useStore = create((set) => ({
   bears: 0,

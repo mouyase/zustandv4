@@ -8,8 +8,8 @@ nav: 12
 If you want to connect state of a store to URL hash, you can create your own hash storage.
 
 ```ts
-import { create } from 'zustand'
-import { persist, StateStorage, createJSONStorage } from 'zustand/middleware'
+import { create } from 'zustandv4'
+import { persist, StateStorage, createJSONStorage } from 'zustandv4/middleware'
 
 const hashStorage: StateStorage = {
   getItem: (key): string => {
@@ -58,8 +58,8 @@ If you want the URL params to always populate, the conditional check on `getUrlS
 The implementation below will update the URL in place, without refresh, as the relevant states change.
 
 ```ts
-import { create } from 'zustand'
-import { persist, StateStorage, createJSONStorage } from 'zustand/middleware'
+import { create } from 'zustandv4'
+import { persist, StateStorage, createJSONStorage } from 'zustandv4/middleware'
 
 const getUrlSearch = () => {
   return window.location.search.slice(1)

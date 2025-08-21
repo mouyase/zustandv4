@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { create } from 'zustand'
+import { create } from 'zustandv4'
 
 describe('subscribe()', () => {
   it('should correctly have access to subscribe', () => {

@@ -24,8 +24,8 @@ npm install immer
 Updating simple states
 
 ```ts
-import { create } from 'zustand'
-import { immer } from 'zustand/middleware/immer'
+import { create } from 'zustandv4'
+import { immer } from 'zustandv4/middleware/immer'
 
 type State = {
   count: number
@@ -54,8 +54,8 @@ export const useCountStore = create<State & Actions>()(
 Updating complex states
 
 ```ts
-import { create } from 'zustand'
-import { immer } from 'zustand/middleware/immer'
+import { create } from 'zustandv4'
+import { immer } from 'zustandv4/middleware/immer'
 
 interface Todo {
   id: string

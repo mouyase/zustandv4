@@ -1,6 +1,6 @@
 import { afterEach, expect, it, vi } from 'vitest'
-import { createStore } from 'zustand/vanilla'
-import type { StoreApi } from 'zustand/vanilla'
+import { createStore } from 'zustandv4/vanilla'
+import type { StoreApi } from 'zustandv4/vanilla'
 
 // To avoid include react deps on vanilla version
 vi.mock('react', () => ({}))

@@ -44,7 +44,7 @@ export function useStore<S extends WithReact<ReadonlyStoreApi<unknown>>, U>(
 ): U
 
 /**
- * @deprecated The usage with three arguments is deprecated. Use `useStoreWithEqualityFn` from 'zustand/traditional'. The usage with one or two arguments is not deprecated.
+ * @deprecated The usage with three arguments is deprecated. Use `useStoreWithEqualityFn` from 'zustandv4/traditional'. The usage with one or two arguments is not deprecated.
  * https://github.com/pmndrs/zustand/discussions/1937
  */
 export function useStore<S extends WithReact<ReadonlyStoreApi<unknown>>, U>(
@@ -64,7 +64,7 @@ export function useStore<TState, StateSlice>(
     !didWarnAboutEqualityFn
   ) {
     console.warn(
-      "[DEPRECATED] Use `createWithEqualityFn` instead of `create` or use `useStoreWithEqualityFn` instead of `useStore`. They can be imported from 'zustand/traditional'. https://github.com/pmndrs/zustand/discussions/1937",
+      "[DEPRECATED] Use `createWithEqualityFn` instead of `create` or use `useStoreWithEqualityFn` instead of `useStore`. They can be imported from 'zustandv4/traditional'. https://github.com/pmndrs/zustand/discussions/1937",
     )
     didWarnAboutEqualityFn = true
   }
@@ -83,7 +83,7 @@ export type UseBoundStore<S extends WithReact<ReadonlyStoreApi<unknown>>> = {
   (): ExtractState<S>
   <U>(selector: (state: ExtractState<S>) => U): U
   /**
-   * @deprecated Use `createWithEqualityFn` from 'zustand/traditional'
+   * @deprecated Use `createWithEqualityFn` from 'zustandv4/traditional'
    */
   <U>(
     selector: (state: ExtractState<S>) => U,
@@ -110,7 +110,7 @@ const createImpl = <T>(createState: StateCreator<T, [], []>) => {
     typeof createState !== 'function'
   ) {
     console.warn(
-      "[DEPRECATED] Passing a vanilla store will be unsupported in a future version. Instead use `import { useStore } from 'zustand'`.",
+      "[DEPRECATED] Passing a vanilla store will be unsupported in a future version. Instead use `import { useStore } from 'zustandv4'`.",
     )
   }
   const api =
@@ -128,12 +128,12 @@ export const create = (<T>(createState: StateCreator<T, [], []> | undefined) =>
   createState ? createImpl(createState) : createImpl) as Create
 
 /**
- * @deprecated Use `import { create } from 'zustand'`
+ * @deprecated Use `import { create } from 'zustandv4'`
  */
 export default ((createState: any) => {
   if (import.meta.env?.MODE !== 'production') {
     console.warn(
-      "[DEPRECATED] Default export is deprecated. Instead use `import { create } from 'zustand'`.",
+      "[DEPRECATED] Default export is deprecated. Instead use `import { create } from 'zustandv4'`.",
     )
   }
   return create(createState)
